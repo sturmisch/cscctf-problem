@@ -1,0 +1,15 @@
+version: '2'
+services:
+  signal:
+    image: signal
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "11112:11112"
+    volumes:
+      - ./signal:/home/signal/signal:ro
+      - ./flag:/home/signal/flag:ro
+      - ./xinetd:/etc/xinetd.d/signal:ro
+      - ./startchall.sh:/usr/bin/startchall:ro

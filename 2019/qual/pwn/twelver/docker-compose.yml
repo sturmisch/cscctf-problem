@@ -1,0 +1,15 @@
+version: '2'
+services:
+  twelver:
+    image: twelver
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "11114:11114"
+    volumes:
+      - ./twelver:/home/twelver/twelver:ro
+      - ./flag:/home/twelver/flag:ro
+      - ./xinetd:/etc/xinetd.d/twelver:ro
+      - ./startchall.sh:/usr/bin/startchall:ro

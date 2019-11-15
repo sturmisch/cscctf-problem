@@ -1,0 +1,14 @@
+service signal
+{
+	disable = no
+	socket_type = stream
+	protocol = tcp
+	wait = no
+	user = signal
+	type = UNLISTED
+	port = 11112
+	bind = 0.0.0.0
+	server = /home/signal/signal
+	per_source = 10
+	rlimit_cpu = 20
+}

@@ -1,0 +1,14 @@
+service babystack
+{
+	disable = no
+	socket_type = stream
+	protocol = tcp
+	wait = no
+	user = babystack
+	type = UNLISTED
+	port = 11111
+	bind = 0.0.0.0
+	server = /home/babystack/babystack
+	per_source = 10
+	rlimit_cpu = 20
+}

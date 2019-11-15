@@ -1,0 +1,15 @@
+version: '2'
+services:
+  babyheap:
+    image: babyheap
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "11113:11113"
+    volumes:
+      - ./babyheap:/home/babyheap/babyheap:ro
+      - ./flag:/home/babyheap/flag:ro
+      - ./xinetd:/etc/xinetd.d/babyheap:ro
+      - ./startchall.sh:/usr/bin/startchall:ro

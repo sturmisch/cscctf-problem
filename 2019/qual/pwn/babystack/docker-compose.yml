@@ -1,0 +1,15 @@
+version: '2'
+services:
+  babystack:
+    image: babystack
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "11111:11111"
+    volumes:
+      - ./babystack:/home/babystack/babystack:ro
+      - ./flag:/home/babystack/flag:ro
+      - ./xinetd:/etc/xinetd.d/babystack:ro
+      - ./startchall.sh:/usr/bin/startchall:ro
