@@ -1,0 +1,12 @@
+version: '2'
+services:
+  proveyouarenotahuman:
+    image: proveyouarenotahuman
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "9001:9001"
+    volumes:
+      - ./index.php:/proveyouarenotahuman/index.php:ro

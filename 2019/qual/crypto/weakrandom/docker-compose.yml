@@ -1,0 +1,14 @@
+version: '2'
+services:
+  weakrandom:
+    image: weakrandom
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "10000:10000"
+    volumes:
+      - ./scPRNG.py:/home/weakrandom/weakrandom.py:ro
+      - ./xinetd:/etc/xinetd.d/weakrandom:ro
+      - ./startchall.sh:/usr/bin/startchall:ro

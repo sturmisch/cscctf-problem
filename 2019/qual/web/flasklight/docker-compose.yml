@@ -1,0 +1,12 @@
+version: '2'
+services:
+  flasklight:
+    image: flasklight
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./app.py:/flasklight/app.py:ro
