@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+</head>
+
+<body>
+    <h1 class='logo'>The Bye Web Catcher</h1>
+    <form class='search' id="url-form">
+        <input type="url" name="url" id="inp-url" placeholder="Yes, there is no submit button. Provide for yourself, be my guest." required/>
+        <input type="hidden" name="timeout" value=1>
+        <center>
+            <p>Enter the url you wish to capture into the box above.</p>
+        </center>
+    </form>
+    <div class="loading">
+        <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+            <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+        </svg>
+    </div>
+    <center>
+        <div id="result">
+
+        </div>
+    </center>
+</body>
+
+<script>
+    $(".loading").hide();
+    $("#url-form").submit(function (e) {
+        e.preventDefault();
+
+        let form_data = $('#url-form').serialize();
+
+        $(".loading").show()
+        $("#inp-url").val("");
+
+        $.post("/snapshot", form_data)
+            .done(function (res) {
+                console.log(res);
+                let ss = new Image();
+                ss.src = 'data:image/png;base64,' + res;
+                $('#result').prepend(ss);
+            })
+            .fail(function (res) {
+                alert("Got: " + res + ". Something gone horribly wrong...");
+            })
+            .always(function () {
+                $(".loading").hide()
+            })
+    });
+</script>
+
+</html>

@@ -1,0 +1,14 @@
+version: '2'
+services:
+  lofiai:
+    image: lofiai
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "9002:80"
+    volumes:
+      - ./index.php:/var/www/html/index.php:ro
+      - ./言語:/var/www/html/言語:ro
+      - ./get_your_ans_here:/get_your_ans_here:ro

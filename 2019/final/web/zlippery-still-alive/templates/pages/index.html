@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Zlippery!</title>
+  <link rel="stylesheet" href="./public/css/main.css" />
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="left-wrap">
+      <div class="left">
+        <div class="heading"><strike>SHARE</strike>ZlipperySurvivesHaxor</div>
+        <div class="site-title">Built Not To Be Hacked</div>
+        <div class="site-slogan">Secure. Secure. Secure.</div>
+        <div class="site-slogan">Last Updated: <b>{{ .Time }}</b> (Server Time)</div>
+      </div>
+    </div>
+    {{ .Hehe }}
+    <div class="right">
+      <div class="file-selected-area">
+        <div class="file-name" id="file-name">No File</div>
+        <div class="file-action">
+          <button class="remove-file-button">X</button>
+          <hr>
+
+        </div>
+      </div>
+      <div class="upload-form">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+          <div class="form-upload-area">
+            <div class="form-upload-area-content-area">
+              <span class="dotted-box"></span>
+              <span class="form-upload-area-content-area-content">Drag and drop your files here.</span>
+            </div>
+            <input type="file" name="file" id="upload-file" class="upload-button">
+          </div>
+          <div class="form-info-area">
+            <label for="reciver">Send To</label>
+            <br>
+            <input type="email" name="receiver" id="reciver" placeholder="Email Address" required>
+            <label for="from">From</label>
+            <br>
+            <input type="email" name="sender" id="from" placeholder="Your Email Address" required>
+            <label for="message">Message</label>
+            <br>
+            <textarea name="message" placeholder="Enter comment (optional)"></textarea>
+            <br>
+            <input type="submit" value="SEND" class="submit-button">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  $('#upload-file').change(function () {
+    var input = this;
+    var url = $(this).val();
+    var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+    if (input.files && input.files[0] && (ext == "pdf" || ext == "jpg" || ext == "png" || ext == "zip" || ext == "rar")) {
+      $("#file-name").html(input.files[0].name);
+    }
+    else {
+      alert("Unknown error !*(#M@#U*!@(#@M__!#@");
+    }
+  });
+
+</script>
+
+</html>

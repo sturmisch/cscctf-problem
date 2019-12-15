@@ -1,0 +1,15 @@
+version: '2'
+services:
+  bye-ending-app:
+    image: bye-ending
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "9000:8000"
+    volumes:
+      - ./adminapp:/app/adminapp:ro
+      - ./byeapp:/app/byeapp:ro
+      - ./requirements.txt:/app/requirements.txt:ro
+      - ./challs.conf:/app/challs.conf:ro

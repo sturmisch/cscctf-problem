@@ -1,0 +1,148 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400,800";
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+}
+
+.parent{
+  background:rgb(25,79,244);
+  height:100vh;
+  padding:0;
+  margin:0;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  color:white;
+  font-family: 'Open Sans', sans-serif;
+  position:rtelative;
+  transition: all .5s ease;
+}
+.left{
+  align-content:center;
+  transition: all .5s ease;
+ 
+}
+.heading{
+  font-size:45px;
+  font-weight:1000;
+  letter-spacing:.1rem;
+  margin-bottom:.1rem
+}
+
+.site-title{
+  font-size:35px;
+  color: rgba(255, 255, 255, 0.8);  
+}
+
+.site-slogan{
+  font-size:22px;
+  color: rgba(255, 255, 255, 0.6)
+}
+.right{
+  background:white;
+  border-radius:5px;
+  overflow:hidden;
+  transition: all 10s ease;
+}
+.upload-form{
+  height:auto;
+  width:300px;
+}
+
+@media (max-width: 600px) {
+  .parent {
+    flex-direction:column;
+    transition: all .5s ease;
+  }
+  .left{
+    margin-bottom:30px;
+  }
+}
+
+ .form-upload-area{
+  height:90px;
+  background:rgb(245	,244	,255	,0.9);
+  position:relative;
+  color: #96a3bb;
+  text-align:center;
+}
+
+.upload-button{
+  height:100%;
+  width:100%;
+  opacity:0;
+}
+.dotted-box{
+  height:30px;
+  width:70px;
+  border:1px dashed #96a3bb;
+ position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); 
+}
+
+.form-upload-area-content-area-content{
+  position:absolute;
+  bottom:5px;
+  right:0;
+  left:0;
+  font-size:12px;
+  
+}
+
+.form-info-area{
+ color:#96a3bb;
+  padding:10px;
+  text-transform:uppercase;  
+  
+}
+
+input[type=text]{
+ border: 1px solid #e0e0e0;
+  width:90%;
+  padding:7px;
+  color:#96a3bb;
+}
+
+.form-info-area label{
+  font-size:11px;
+}
+
+.form-info-area textarea{
+  border: 1px solid #e0e0e0;
+  padding:7px;
+  width:100%;
+  border-radius:5px;
+  color:#96a3bb;
+  width:90%;
+}
+
+.submit-button{
+  margin-top:14px;
+  border: 1px solid #e0e0e0;
+  padding:10px;
+  width:100%;
+  border-radius:5px;
+  color:white;
+  background:rgba(25,79,244	);
+  cursor-type:poiner;
+  font-weight:1000;
+  cursor: pointer;
+}
+
+.file-selected-area{
+  color:black;
+  position:relative;
+  padding:10px;
+}
+.remove-file-button{
+ background:white;
+  border:none;
+  position:absolute;
+  right:10px;
+  top:10px;
+    font-size:15px;
+  cursor: pointer;
+}

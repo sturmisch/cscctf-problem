@@ -1,0 +1,9 @@
+version: '2'
+services:
+  app:
+    build: .
+    ports:
+       - 9001:4000
+    volumes:
+       - ./storage:/app/storage
+       - .:/app:ro
