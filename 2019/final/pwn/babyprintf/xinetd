@@ -1,0 +1,14 @@
+service babyprintf
+{
+	disable = no
+	socket_type = stream
+	protocol = tcp
+	wait = no
+	user = babyprintf
+	type = UNLISTED
+	port = 10001
+	bind = 0.0.0.0
+	server = /home/babyprintf/babyprintf
+	per_source = 10
+	rlimit_cpu = 20
+}

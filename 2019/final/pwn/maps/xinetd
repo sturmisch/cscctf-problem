@@ -1,0 +1,14 @@
+service maps
+{
+	disable = no
+	socket_type = stream
+	protocol = tcp
+	wait = no
+	user = maps
+	type = UNLISTED
+	port = 11116
+	bind = 0.0.0.0
+	server = /home/maps/maps
+	per_source = 10
+	rlimit_cpu = 20
+}

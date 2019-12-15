@@ -1,0 +1,14 @@
+service childrenheap
+{
+	disable = no
+	socket_type = stream
+	protocol = tcp
+	wait = no
+	user = childrenheap
+	type = UNLISTED
+	port = 11115
+	bind = 0.0.0.0
+	server = /home/childrenheap/childrenheap
+	per_source = 10
+	rlimit_cpu = 20
+}

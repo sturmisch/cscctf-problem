@@ -1,0 +1,15 @@
+version: '2'
+services:
+  babyprintf:
+    image: babyprintf
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "10001:10001"
+    volumes:
+      - ./babyprintf:/home/babyprintf/babyprintf:ro
+      - ./flag:/home/babyprintf/flag:ro
+      - ./xinetd:/etc/xinetd.d/babyprintf:ro
+      - ./startchall.sh:/usr/bin/startchall:ro

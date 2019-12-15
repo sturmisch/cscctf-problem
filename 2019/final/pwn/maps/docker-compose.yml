@@ -1,0 +1,15 @@
+version: '2'
+services:
+  maps:
+    image: maps
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "11116:11116"
+    volumes:
+      - ./maps:/home/maps/maps:ro
+      - ./libflag.so:/home/maps/libflag.so:ro
+      - ./xinetd:/etc/xinetd.d/maps:ro
+      - ./startchall.sh:/usr/bin/startchall:ro

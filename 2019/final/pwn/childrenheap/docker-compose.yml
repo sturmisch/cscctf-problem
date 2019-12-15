@@ -1,0 +1,15 @@
+version: '2'
+services:
+  childrenheap:
+    image: childrenheap
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "11115:11115"
+    volumes:
+      - ./childrenheap:/home/childrenheap/childrenheap:ro
+      - ./flag:/home/childrenheap/flag:ro
+      - ./xinetd:/etc/xinetd.d/childrenheap:ro
+      - ./startchall.sh:/usr/bin/startchall:ro
